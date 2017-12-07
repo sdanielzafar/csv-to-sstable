@@ -34,7 +34,7 @@ import com.google.common.base.Joiner;
  */
 public class Bulkload {
 	
-	private static final CsvPreference SINGLE_QUOTED_COMMA_DELIMITED = new CsvPreference.Builder(
+	private static final CsvPreference SINGLE_QUOTED_TAB_DELIMITED = new CsvPreference.Builder(
 			'\'', '\t', "\n").build();
 
 	private static String readFile(String path, Charset encoding)
@@ -158,7 +158,7 @@ public class Bulkload {
 		String csv_path = args[2];
 		String output_path = args[3];
 		
-		CsvPreference csv_prefs = SINGLE_QUOTED_COMMA_DELIMITED;
+		CsvPreference csv_prefs = SINGLE_QUOTED_TAB_DELIMITED;
 		if (args.length >= 5) {
 			try {
 				csv_prefs = parseCsvPrefs(args[4]);
