@@ -1,8 +1,8 @@
 
 
-# CSV to Cassandra SSTable
+# TSV to Cassandra SSTable
 
-Converts a CSV file into SSTables that can be bulkloaded into a Cassandra cluster
+Converts a tSV file into SSTables that can be bulkloaded into a Cassandra cluster
 
 ## Installation
 
@@ -12,13 +12,13 @@ Make sure that maven is installed on your system. Then to build the jar file, ru
 
 ## Usage
 
-When running csv-to-sstable.jar, you need to specify the keyspace for which you want to generate the SSTables, the absolute path to a CQL file containing the "TABLE CREATE" definition of the Cassandra table that you want to populate and the absolute path to your CSV file:
+When running tsv-to-sstable.jar, you need to specify the keyspace for which you want to generate the SSTables, the absolute path to a CQL file containing the "TABLE CREATE" definition of the Cassandra table that you want to populate and the absolute path to your TSV file:
 
-    $ java -jar csv-to-sstable.jar <keyspace> <absolute/path/to/schema.cql> <absolute/path/to/input.csv> <absolute/path/to/output/dir> [optional csv prefs]
+    $ java -jar tsv-to-sstable.jar <keyspace> <absolute/path/to/schema.cql> <absolute/path/to/input.tsv> <absolute/path/to/output/dir> [optional tsv prefs]
 
-Optionally, you can pass CSV Preferences in JSON format. Omitting this parameter is equivalent to passing the following default preferences:
+Optionally, you can pass TSV Preferences in JSON format. Omitting this parameter is equivalent to passing the following default preferences:
     
-    $ java -jar csv-to-sstable.jar <keyspace> <absolute/path/to/schema.cql> <absolute/path/to/input.csv> <absolute/path/to/output/dir> "{\"col_sep\":\",\", \"quote_char\":\"'\"}"
+    $ java -jar tsv-to-sstable.jar <keyspace> <absolute/path/to/schema.cql> <absolute/path/to/input.tsv> <absolute/path/to/output/dir> "{\"col_sep\":\",\", \"quote_char\":\"'\"}"
 
 Note that the quotes in your JSON must be escaped (as in the example above) in order to be passed on the command line.
 
@@ -35,9 +35,9 @@ CREATE TABLE my_keyspace.my_table (
 );
 ```
 
-Assuming you want to use a CSV file `my_csv.csv` in your home directory to populate your table, you can run:
+Assuming you want to use a TSV file `my_tsv.tsv` in your home directory to populate your table, you can run:
 
-    $ java -jar csv-to-sstable.jar my_keyspace /Users/home/my_table.cql /Users/home/my_csv.csv /Users/home/sstables
+    $ java -jar tsv-to-sstable.jar my_keyspace /Users/home/my_table.cql /Users/home/my_tsv.tsv /Users/home/sstables
 
 
 After the SSTables have been generated, you can bulkload them into Cassandra by using sstableloader. Assuming that you have a running local Cassandra cluster installed in ~/cassandra, run:
@@ -48,7 +48,7 @@ After the SSTables have been generated, you can bulkload them into Cassandra by 
 
 Currently, only a limited number of column types are supported:
 
-Cassandra column type  | Example CSV column
+Cassandra column type  | Example TSV column
 ---------------------- | --------------------
 text   | 'My Little Text'
 float  | '8.97'
@@ -59,13 +59,13 @@ set&lt;text&gt; | '["first", "second", "third"]'
 
 ## Contributing
 
-1. Fork it ( https://github.com/SPBTV/csv-to-sstable/fork )
+1. Fork it ( https://github.com/sdanielzafar/tsv-to-sstable/fork )
 2. Create your feature branch (`git checkout -b feature/my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin feature/my-new-feature`)
 5. Create a new Pull Request
 
-##License
+##Original License
 
 Copyright 2015 SPB TV AG
 
