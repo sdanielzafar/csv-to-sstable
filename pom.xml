@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<groupId>com.spbtv</groupId>
-	<artifactId>csv-to-sstable</artifactId>
+	<artifactId>tsv-to-sstable</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	
-	<name>csv-to-sstable</name>
+	<name>tsv-to-sstable</name>
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
