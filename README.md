@@ -2,7 +2,7 @@
 
 # TSV to Cassandra SSTable
 
-Converts a tSV file into SSTables that can be bulkloaded into a Cassandra cluster
+Converts a TSV file into SSTables that can be bulkloaded into a Cassandra cluster. Forked from csv-to-sstable.
 
 ## Installation
 
