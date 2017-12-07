@@ -35,7 +35,7 @@ import com.google.common.base.Joiner;
 public class Bulkload {
 	
 	private static final CsvPreference SINGLE_QUOTED_COMMA_DELIMITED = new CsvPreference.Builder(
-			'\'', ',', "\n").build();
+			'\'', '\t', "\n").build();
 
 	private static String readFile(String path, Charset encoding)
 			throws IOException {
